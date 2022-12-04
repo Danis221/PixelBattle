@@ -6,24 +6,38 @@
 <?import javafx.scene.text.Font?>
 
 <?import javafx.scene.control.Button?>
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.itis.extreme_pixel_battle.controllers.PixelController">
+<?import javafx.scene.control.TextField?>
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ru.itis.extreme_pixel_battle.controllers.PixelController">
     <children>
-        <Label fx:id="timerLabel" alignment="CENTER" layoutX="14.0" layoutY="40.0" text="Please wait" textAlignment="CENTER">
+<!--        <Label fx:id="nameLabel" alignment="CENTER" layoutX="550.0" layoutY="210.0" text="Image name"-->
+<!--               textAlignment="CENTER">-->
+<!--            <font>-->
+<!--                <Font size="19.0"/>-->
+<!--            </font>-->
+<!--        </Label>-->
+<!--        <TextField id="nameImage" layoutX="550.0" layoutY="250.0"/>-->
+        <Label fx:id="timerLabel" alignment="CENTER" layoutX="14.0" layoutY="40.0" text="Please wait"
+               textAlignment="CENTER">
             <font>
-                <Font size="25.0" />
+                <Font size="25.0"/>
             </font>
         </Label>
-        <Label fx:id="textLabel" alignment="CENTER" layoutX="14.0" layoutY="20.0"  text="You have:" textAlignment="CENTER">
+        <Label fx:id="textLabel" alignment="CENTER" layoutX="14.0" layoutY="20.0" text="You have:"
+               textAlignment="CENTER">
             <font>
-                <Font size="20.0" />
+                <Font size="20.0"/>
             </font>
         </Label>
-        <Label fx:id="colorText" alignment="CENTER" layoutX="550.0" layoutY="100.0"  text="Сhoose a color:" textAlignment="CENTER">
+        <Label fx:id="colorText" alignment="CENTER" layoutX="550.0" layoutY="100.0" text="Сhoose a color:"
+               textAlignment="CENTER">
             <font>
-                <Font size="19.0" />
+                <Font size="19.0"/>
             </font>
         </Label>
-        <ColorPicker fx:id="colorPicker" layoutX="550.0" layoutY="130.0" />
-        <Button fx:id="save" layoutX="550.0" layoutY="180.0" prefWidth="125" text="Save" />
+        <ColorPicker fx:id="colorPicker" layoutX="550.0" layoutY="130.0"/>
+        <Button fx:id="save" layoutX="550.0" layoutY="180.0" prefWidth="125" text="Save"/>
     </children>
 </AnchorPane>

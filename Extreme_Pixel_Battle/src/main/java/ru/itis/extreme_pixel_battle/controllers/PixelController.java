@@ -15,7 +15,13 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class PixelController implements Initializable {
@@ -32,7 +38,7 @@ public class PixelController implements Initializable {
 
     private GridPane gridPane;
 
-    private final Integer gameTime  = 100;
+    private final Integer gameTime = 100;
 
 
     @Override
@@ -40,7 +46,7 @@ public class PixelController implements Initializable {
         gridPane = createSheet();
         startGame();
 
-
+        save.setOnMouseClicked(mouseEvent -> save());
         pane.getChildren().add(gridPane);
     }
 
@@ -80,10 +86,25 @@ public class PixelController implements Initializable {
         gridPane.setDisable(false);
         textLabel.setVisible(true);
 
-        timerLabel.setText(""+gameTime);
+        timerLabel.setText("" + gameTime);
         Timeline timer = new Timeline(new KeyFrame(Duration.seconds(1), actionEvent ->
-                timerLabel.setText( ""+(Integer.parseInt(timerLabel.getText()) - 1)+ "")));
+                timerLabel.setText("" + (Integer.parseInt(timerLabel.getText()) - 1) + "")));
         timer.setCycleCount(gameTime);
         timer.play();
+    }
+
+    private void save() {
+        try {
+            Robot robot = new Robot();
+
+            BufferedImage imgReturn = robot.createScreenCapture(new java.awt.Rectangle(14, 122, 500, 500));
+            try {
+                ImageIO.write(imgReturn, "png", new File(System.getProperty("user.home") + "/Desktop/ScreenPB" + new Random().nextLong() + new Random().nextLong() + ".png"));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        } catch (AWTException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
