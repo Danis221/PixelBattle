@@ -4,6 +4,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
@@ -94,12 +95,19 @@ public class PixelController implements Initializable {
     }
 
     private void save() {
+        String path = System.getProperty("user.home") + "/Desktop/ScreenPB" + new Random().nextLong() + new Random().nextLong() + ".png";
         try {
             Robot robot = new Robot();
 
             BufferedImage imgReturn = robot.createScreenCapture(new java.awt.Rectangle(14, 122, 500, 500));
             try {
-                ImageIO.write(imgReturn, "png", new File(System.getProperty("user.home") + "/Desktop/ScreenPB" + new Random().nextLong() + new Random().nextLong() + ".png"));
+                ImageIO.write(imgReturn, "png", new File(path));
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("pixel art сохранился " +
+                        "пут: " + path);
+                alert.show();
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
